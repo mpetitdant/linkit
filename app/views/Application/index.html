@@ -164,7 +164,7 @@
                 #{if ticketSales && !soldOut }
                     #{ticketing member, buttonClass:'btn btn-lg btn-danger btn-block'/}
                 #{/if}
-                #{if soldOut }
+                #{if soldOut && !member?.ticketingRegistered}
                     <a target="_blank" href="https://docs.google.com/forms/d/15pxb6P_06piH5SdOxs8DFgPGnDxzFfLfat_dbnCttQE/viewform" class="btn btn-lg btn-default btn-block" style="margin-top: 5px;">&{'ticketing.soldout.wait-list'}</a>
                 #{/if}
                 #{if session.username}
@@ -189,15 +189,7 @@
         *{
         <div style="text-align: center">
             <div class="well col-sm-4 col-sm-offset-4">
-                #{if ticketSales}
-                <div style="margin-top: 5px;">
-                    #{ticketing member, buttonClass:'btn btn-lg btn-danger btn-block'/}
-                </div>
-                #{/if}
                 <a href="@{Sessions.currentPlanning()}" class="btn btn-lg btn-primary btn-block">&{'home.planning'}</a>
-                #{if session.username}
-                <a href="@{LightningTalks.create()}" class="btn btn-lg btn-info btn-block">&{'lightningtalk.submit'}</a>
-                #{/if}
                 <a target="_blank" href="https://fr.surveymonkey.com/s/VCL2BZL" class="btn btn-lg btn-info btn-block">&{'mixit.poll.goto'}</a>
             </div>
         </div>

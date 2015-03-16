@@ -164,6 +164,9 @@
                 #{if ticketSales && !soldOut }
                     #{ticketing member, buttonClass:'btn btn-lg btn-danger btn-block'/}
                 #{/if}
+                #{if soldOut }
+                    <a target="_blank" href="https://docs.google.com/forms/d/15pxb6P_06piH5SdOxs8DFgPGnDxzFfLfat_dbnCttQE/viewform" class="btn btn-lg btn-default btn-block" style="margin-top: 5px;">&{'ticketing.soldout.wait-list'}</a>
+                #{/if}
                 #{if session.username}
                     <a href="@{LightningTalks.create()}" class="btn btn-lg btn-info btn-block" style="margin-top: 5px;">&{'lightningtalk.submit'}</a>
                 #{/if}

@@ -49,7 +49,7 @@ mixit.header=Java, Agile, Web, Innovation...
 ticketing.alert=&{ticketing.soldout}
 ticketing.open=Ticketing is open!
 ticketing.soldout=SOLD-OUT
-ticketing.soldout.wait-list=Register in ticketing wait list.
+ticketing.soldout.wait-list=Register in tickets waiting list.
 mixit.past.event=See you in 2015!
 mixit.poll.goto=Fill the #mixit14 poll
 button.about.mixit=About Mix-IT
@@ -229,7 +229,7 @@ registration.step1.alternative=You can also buy your ticket via our partner if y
 registration.step2.ticketing.unsigned=Buy your ticket from your Mix-IT's Dashboard!
 registration.step2.ticketing.unsigned.why=The ticket purchase is done by our partner YurPlan
 registration.warning.email=Warning: use the same email %s you used for your Mix-IT account for your payment via our partner
-registration.waiting-list=Oh noes! Mix-IT is sold-out!<br/>But wait. To give you some hope, we've set up a waiting list. Some tickets might become available (but nothing sure) if some sponsors don't use all of their dedicated ones. We then would be happy to reopen them to people registered here.<br/><strong>Please fill in &gt; <a href="https://docs.google.com/spreadsheet/viewform?usp=drive_web&formkey=dFRHSzAwbXRwdGVVaTJqamczX1JGbGc6MA#gid=0" title="Mix-IT 2014 waiting list" target="waiting">this form</a> &lt;</strong>.
+registration.waiting-list=Oh noes! Mix-IT is sold-out!<br/>But wait. To give you some hope, we've set up a waiting list. Some tickets might become available (but nothing sure) if some sponsors don't use all of their dedicated ones. We then would be happy to reopen them to people registered here.<br/><strong>Please fill in &gt; <a href="https://docs.google.com/forms/d/15pxb6P_06piH5SdOxs8DFgPGnDxzFfLfat_dbnCttQE/viewform" title="Mix-IT 2015 waiting list" target="waiting">this form</a> &lt;</strong>.
 
 # Member fields
 

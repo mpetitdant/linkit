@@ -13,6 +13,86 @@ import static models.planning.SlotConstants.*;
 public enum Slot {
 
     /**************************************************************************/
+    /*******                     2015 slots                           *********/
+    /**************************************************************************/
+    // Jeudi
+    //Talks
+    Jeudi_2015_A1_Talk_1(Jeudi_2015, Room.A1, _10_00, _10_50),
+    Jeudi_2015_A2_Talk_1(Jeudi_2015, Room.A2, _10_00, _10_50),
+    Jeudi_2015_S1_Talk_1(Jeudi_2015, Room.S1, _10_00, _10_50),
+    Jeudi_2015_S2_Talk_1(Jeudi_2015, Room.S2, _10_00, _10_50),
+    Jeudi_2015_A1_Talk_2(Jeudi_2015, Room.A1, _11_10, _12_00),
+    Jeudi_2015_A2_Talk_2(Jeudi_2015, Room.A2, _11_10, _12_00),
+    Jeudi_2015_S1_Talk_2(Jeudi_2015, Room.S1, _11_10, _12_00),
+    Jeudi_2015_S2_Talk_2(Jeudi_2015, Room.S2, _11_10, _12_00),
+    Jeudi_2015_A1_Talk_3(Jeudi_2015, Room.A1, _13_40, _14_30),
+    Jeudi_2015_A2_Talk_3(Jeudi_2015, Room.A2, _13_40, _14_30),
+    Jeudi_2015_S1_Talk_3(Jeudi_2015, Room.S1, _13_40, _14_30),
+    Jeudi_2015_S2_Talk_3(Jeudi_2015, Room.S2, _13_40, _14_30),
+    Jeudi_2015_A1_Talk_4(Jeudi_2015, Room.A1, _14_50, _15_40),
+    Jeudi_2015_A2_Talk_4(Jeudi_2015, Room.A2, _14_50, _15_40),
+    Jeudi_2015_S1_Talk_4(Jeudi_2015, Room.S1, _14_50, _15_40),
+    Jeudi_2015_S2_Talk_4(Jeudi_2015, Room.S2, _14_50, _15_40),
+    Jeudi_2015_A1_Talk_5(Jeudi_2015, Room.A1, _16_00, _16_50),
+    Jeudi_2015_A2_Talk_5(Jeudi_2015, Room.A2, _16_00, _16_50),
+    Jeudi_2015_S1_Talk_5(Jeudi_2015, Room.S1, _16_00, _16_50),
+    Jeudi_2015_S2_Talk_5(Jeudi_2015, Room.S2, _16_00, _16_50),
+    //Workshops
+    Jeudi_2015_S3_Workshop_1(Jeudi_2015, Room.S3, _10_00, _12_00),
+    Jeudi_2015_S4_Workshop_1(Jeudi_2015, Room.S4, _10_00, _12_00),
+    Jeudi_2015_S5_Workshop_1(Jeudi_2015, Room.S5, _10_00, _12_00),
+    Jeudi_2015_S3_Workshop_2(Jeudi_2015, Room.S3, _12_30, _14_30),
+    Jeudi_2015_S5_Workshop_2(Jeudi_2015, Room.S4, _12_30, _14_30),
+    Jeudi_2015_S4_Workshop_2(Jeudi_2015, Room.S5, _12_30, _14_30),
+    Jeudi_2015_S3_Workshop_3(Jeudi_2015, Room.S3, _14_50, _16_50),
+    Jeudi_2015_S4_Workshop_3(Jeudi_2015, Room.S4, _14_50, _16_50),
+    Jeudi_2015_S5_Workshop_3(Jeudi_2015, Room.S5, _14_50, _16_50),
+    //Others
+    Jeudi_2015_A1_Keynote_1(Jeudi_2015, Room.A1, _09_15, _09_40),
+    Jeudi_2015_A1_Keynote_2(Jeudi_2015, Room.A1, _17_10, _17_35),
+    Jeudi_2015_A1_Keynote_3(Jeudi_2015, Room.A1, _17_35, _18_00),
+
+    // Vendredi
+    //Talks
+    Vendredi_2015_A1_Talk_1(Vendredi_2015, Room.A1, _10_00, _10_50),
+    Vendredi_2015_A2_Talk_1(Vendredi_2015, Room.A2, _10_00, _10_50),
+    Vendredi_2015_S1_Talk_1(Vendredi_2015, Room.S1, _10_00, _10_50),
+    Vendredi_2015_S2_Talk_1(Vendredi_2015, Room.S2, _10_00, _10_50),
+    Vendredi_2015_A1_Talk_2(Vendredi_2015, Room.A1, _11_10, _12_00),
+    Vendredi_2015_A2_Talk_2(Vendredi_2015, Room.A2, _11_10, _12_00),
+    Vendredi_2015_S1_Talk_2(Vendredi_2015, Room.S1, _11_10, _12_00),
+    Vendredi_2015_S2_Talk_2(Vendredi_2015, Room.S2, _11_10, _12_00),
+    Vendredi_2015_A1_Talk_3(Vendredi_2015, Room.A1, _13_40, _14_30),
+    Vendredi_2015_A2_Talk_3(Vendredi_2015, Room.A2, _13_40, _14_30),
+    Vendredi_2015_S1_Talk_3(Vendredi_2015, Room.S1, _13_40, _14_30),
+    Vendredi_2015_S2_Talk_3(Vendredi_2015, Room.S2, _13_40, _14_30),
+    Vendredi_2015_A1_Talk_4(Vendredi_2015, Room.A1, _14_50, _15_40),
+    Vendredi_2015_A2_Talk_4(Vendredi_2015, Room.A2, _14_50, _15_40),
+    Vendredi_2015_S1_Talk_4(Vendredi_2015, Room.S1, _14_50, _15_40),
+    //Vendredi_2015_S2_Talk_4(Vendredi_2015, Room.S2, _14_50, _15_40),
+    Vendredi_2015_A1_Talk_5(Vendredi_2015, Room.A1, _16_00, _16_50),
+    Vendredi_2015_A2_Talk_5(Vendredi_2015, Room.A2, _16_00, _16_50),
+    Vendredi_2015_S1_Talk_5(Vendredi_2015, Room.S1, _16_00, _16_50),
+    //Vendredi_2015_S2_Talk_5(Vendredi_2015, Room.S2, _16_00, _16_50),
+    //Workshops
+    Vendredi_2015_S3_Workshop_1(Vendredi_2015, Room.S3, _10_00, _12_00),
+    Vendredi_2015_S4_Workshop_1(Vendredi_2015, Room.S4, _10_00, _12_00),
+    Vendredi_2015_S5_Workshop_1(Vendredi_2015, Room.S5, _10_00, _12_00),
+    Vendredi_2015_S3_Workshop_2(Vendredi_2015, Room.S3, _12_30, _14_30),
+    Vendredi_2015_S4_Workshop_2(Vendredi_2015, Room.S4, _12_30, _14_30),
+    Vendredi_2015_S5_Workshop_2(Vendredi_2015, Room.S5, _12_30, _14_30),
+    Vendredi_2015_S2_Workshop_3(Vendredi_2015, Room.S2, _14_50, _16_50),
+    Vendredi_2015_S3_Workshop_3(Vendredi_2015, Room.S3, _14_50, _16_50),
+    Vendredi_2015_S4_Workshop_3(Vendredi_2015, Room.S4, _14_50, _16_50),
+    Vendredi_2015_S5_Workshop_3(Vendredi_2015, Room.S5, _14_50, _16_50),
+    //Others
+    Vendredi_2015_A1_Keynote_1(Vendredi_2015, Room.A1, _09_15, _09_40),
+    Vendredi_2015_A1_Keynote_2(Vendredi_2015, Room.A1, _13_00, _13_30),
+    Vendredi_2015_A1_Keynote_3(Vendredi_2015, Room.A1, _17_10, _17_35),
+    Vendredi_2015_A1_Keynote_4(Vendredi_2015, Room.A1, _17_35, _18_00),
+
+
+    /**************************************************************************/
     /*******                     2014 slots                           *********/
     /**************************************************************************/
     // Mardi

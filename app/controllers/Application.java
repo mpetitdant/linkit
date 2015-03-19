@@ -32,6 +32,8 @@ public class Application extends PageController {
             session.remove("username");
         }
 
+        Member member = Member.findByLogin(login);
+
         // Three recent articles
         // Unused
 //        List<Article> articles = Article.recents(1, 3);
@@ -53,7 +55,7 @@ public class Application extends PageController {
         boolean ticketSales = helpers.ticketing.YurPlan.isTicketSales() ;
         boolean soldOut = helpers.ticketing.YurPlan.soldOut ;
 
-        render(/*articles, sessions, members, */isHomePage, guestSpeakersToDisplay, ticketSalesStartDate, ticketSales, soldOut);
+        render(/*articles, sessions, members, */isHomePage, guestSpeakersToDisplay, ticketSalesStartDate, ticketSales, soldOut, member);
     }
 
     public static void members() {

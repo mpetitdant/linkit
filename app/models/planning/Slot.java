@@ -24,7 +24,6 @@ public enum Slot {
     Jeudi_2015_A1_Talk_2(Jeudi_2015, Room.A1, _11_10, _12_00),
     Jeudi_2015_A2_Talk_2(Jeudi_2015, Room.A2, _11_10, _12_00),
     Jeudi_2015_S1_Talk_2(Jeudi_2015, Room.S1, _11_10, _12_00),
-    Jeudi_2015_S2_Talk_2(Jeudi_2015, Room.S2, _11_10, _12_00),
     Jeudi_2015_A1_Talk_3(Jeudi_2015, Room.A1, _13_40, _14_30),
     Jeudi_2015_A2_Talk_3(Jeudi_2015, Room.A2, _13_40, _14_30),
     Jeudi_2015_S1_Talk_3(Jeudi_2015, Room.S1, _13_40, _14_30),
@@ -38,6 +37,7 @@ public enum Slot {
     Jeudi_2015_S1_Talk_5(Jeudi_2015, Room.S1, _16_00, _16_50),
     Jeudi_2015_S2_Talk_5(Jeudi_2015, Room.S2, _16_00, _16_50),
     //Workshops
+    Jeudi_2015_S2_Talk_2(Jeudi_2015, Room.S2, _11_10, _13_00), // Yes this is a workshop (last minute change from Conf to Workshop)
     Jeudi_2015_S3_Workshop_1(Jeudi_2015, Room.S3, _10_00, _12_00),
     Jeudi_2015_S4_Workshop_1(Jeudi_2015, Room.S4, _10_00, _12_00),
     Jeudi_2015_S5_Workshop_1(Jeudi_2015, Room.S5, _10_00, _12_00),

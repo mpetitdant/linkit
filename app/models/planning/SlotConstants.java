@@ -15,6 +15,9 @@ public class SlotConstants {
      static final LocalDate Mardi_2014 = LocalDate.parse("2014-04-29");
      static final LocalDate Mercredi_2014 = LocalDate.parse("2014-04-30");
 
+    static final LocalDate Jeudi_2015 = LocalDate.parse("2015-04-16");
+    static final LocalDate Vendredi_2015 = LocalDate.parse("2015-04-17");
+
      static final LocalTime _09_15 = LocalTime.parse("09:15");
      static final LocalTime _09_40 = LocalTime.parse("09:40");
      static final LocalTime _10_00 = LocalTime.parse("10:00");

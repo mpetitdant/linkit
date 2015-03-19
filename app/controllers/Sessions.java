@@ -13,13 +13,13 @@ import play.Play;
 import play.cache.Cache;
 import play.data.validation.MinSize;
 import play.data.validation.Required;
-import play.data.validation.Valid;
 import play.data.validation.Validation;
 import play.i18n.Messages;
 import play.libs.Images;
-import play.mvc.With;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Sessions extends PageController {
 
@@ -36,6 +36,8 @@ public class Sessions extends PageController {
             case mixit13:
                 renderTemplate("Sessions/planningMixIT13.html", planning);
             case mixit14:
+                renderTemplate("Sessions/planningMixIT14.html", planning);
+            case mixit15:
                 renderTemplate("Sessions/planning.html", planning);
             default :
                 notFound();

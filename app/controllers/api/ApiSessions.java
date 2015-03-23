@@ -13,7 +13,7 @@ public class ApiSessions extends JsonpController {
 
     public static void talks(boolean details) {
         Planning planning = PlanedSlot.on(ConferenceEvent.CURRENT, true);
-        renderJSON(planning.getSlots(), getSerializers(details));
+        renderJSON(planning.getSlots(), details ? DETAILED_SLOT_SERIALIZER : SLOT_SERIALIZER);
     }
 
     public static void talk(long id, boolean details) {
@@ -23,43 +23,25 @@ public class ApiSessions extends JsonpController {
         if (slot == null) {
             slot = new PlanedSlot(talk);
         }
-        renderJSON(slot, getSerializers(details));
+        renderJSON(slot, details ? DETAILED_TALK_SERIALIZER : TALK_SERIALIZER);
     }
 
     public static void lightningTalks(boolean details) {
         List<LightningTalk> talks = LightningTalk.findAllOn(ConferenceEvent.CURRENT);
-        renderJSON(talks, getSerializers(details));
+        renderJSON(talks, new LightningTalkJsonSerializer(false));//getSerializers(details));
     }
 
     public static void lightningTalk(long id, boolean details) {
         LightningTalk talk = LightningTalk.findById(id);
         notFoundIfNull(talk);
-        renderJSON(talk, getSerializers(details));
+        renderJSON(talk, details ? DETAILED_LT_SERIALIZER : LT_SERIALIZER);
     }
 
-    private static JsonSerializer[] getSerializers(boolean details) {
-        return details ? DETAILED_TALK_SERIALIZERS : TALK_SERIALIZERS;
-    }
 
-    private static JsonSerializer TALK_SERIALIZERS[] = new JsonSerializer[] {
-            new PlanedSlotJsonSerializer(false),
-            new TalkJsonSerializer(false),
-            new LightningTalkJsonSerializer(false),
-            new MemberJsonSerializer(false),
-            new StaffJsonSerializer(false),
-            new SponsorJsonSerializer(false),
-            new ConmmentJsonSerializer(),
-            new InterestJsonSerializer()
-    };
-
-    private static JsonSerializer DETAILED_TALK_SERIALIZERS[] = new JsonSerializer[] {
-            new PlanedSlotJsonSerializer(true),
-            new TalkJsonSerializer(true),
-            new LightningTalkJsonSerializer(true),
-            new MemberJsonSerializer(true),
-            new StaffJsonSerializer(true),
-            new SponsorJsonSerializer(true),
-            new ConmmentJsonSerializer(),
-            new InterestJsonSerializer()
-    };
+    private static JsonSerializer DETAILED_SLOT_SERIALIZER = new PlanedSlotJsonSerializer(true);
+    private static JsonSerializer DETAILED_TALK_SERIALIZER = new TalkJsonSerializer(true);
+    private static JsonSerializer DETAILED_LT_SERIALIZER = new LightningTalkJsonSerializer(true);
+    private static JsonSerializer SLOT_SERIALIZER = new PlanedSlotJsonSerializer(false);
+    private static JsonSerializer TALK_SERIALIZER = new TalkJsonSerializer(false);
+    private static JsonSerializer LT_SERIALIZER = new LightningTalkJsonSerializer(false);
 }

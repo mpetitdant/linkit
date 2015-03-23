@@ -628,6 +628,10 @@ pickup.note=Whenever possible, Mix-IT staff tries to pick-up foreign speakers to
 speakerPreferences.presence.legend=Presences
 speakerPreferences.presence.note=Knowing your presences, that's avoiding too much emails during planification; but also allowing us to book the proper number of meals and hotel rooms.
 
+speakerPreferences.talks.legend=Validated sessions
+speakerPreferences.talks.note=As a reminder, your sessions are set at these specific times:
+speakerPreferences.talks.not-planned=Session not planned yet
+
 preferences.conference.dayMinusOne=Day D-1 (15 apr.)
 preferences.conference.day1=Day 1 (16 apr.)
 preferences.conference.day2=Day 2 (17 apr.)

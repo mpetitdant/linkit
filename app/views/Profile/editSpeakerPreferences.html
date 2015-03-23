@@ -108,6 +108,34 @@
 
     </fieldset>
 
+    #{if validatedSessions}
+        <fieldset>
+            <legend>&{'speakerPreferences.talks.legend'}</legend>
+            <div>&{'speakerPreferences.talks.note'}</div>
+
+            <div class="row">
+                #{list validatedSessions, as:'mySession'}
+                    #{if mySession instanceof models.Talk}
+                        <div class="col-md-12">
+                            <h3 class="session title">
+                                [&{'enum.TalkFormat.'+mySession.format}#{lang-flag mySession.lang /}]
+                                <a href="@{Sessions.show(mySession.id, mySession.title.slugify())}" title="${mySession.title}">${mySession.title}</a>:
+
+                                #{if slotsBySession.get(mySession) }
+                                    #{slot slotsBySession.get(mySession) /}
+                                #{/if}
+                                #{else}
+                                    &{'speakerPreferences.talks.not-planned'}
+                                #{/else}
+                            </h3>
+                        </div>
+                    #{/if}
+                #{/list}
+            </div>
+
+        </fieldset>
+        <br>
+    #{/if}
 
     <fieldset>
         <legend>&{'speakerPreferences.presence.legend'}</legend>

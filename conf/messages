@@ -663,6 +663,10 @@ preferences.pickup=Je souhaite qu'on vienne me chercher.
 speakerPreferences.presence.legend=Présences
 speakerPreferences.presence.note=Connaitre vos présences c'est éviter les allers retours sur le travail de planification des sessions mais aussi nous permettre de réserver le bon nombre de repas et places aux soirées.
 
+speakerPreferences.talks.legend=Sessions validées
+speakerPreferences.talks.note=Pour rappel, vos sessions vallidées sont prévues à ces horaires :
+speakerPreferences.talks.not-planned=Session en attente de planification
+
 preferences.conference.dayMinusOne=Jour J-1 (15 avr.)
 preferences.conference.day1=Jour 1 (16 avr.)
 preferences.conference.day2=Jour 2 (17 avr.)

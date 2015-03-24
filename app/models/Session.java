@@ -1,12 +1,7 @@
 package models;
 
 import com.google.common.base.Function;
-import com.google.common.base.Predicate;
-import controllers.Application;
 import controllers.Mails;
-import java.util.*;
-import javax.annotation.Nullable;
-import javax.persistence.*;
 import models.activity.Activity;
 import models.activity.CommentSessionActivity;
 import models.activity.LookSessionActivity;
@@ -18,6 +13,10 @@ import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 import play.modules.search.Field;
+
+import javax.annotation.Nullable;
+import javax.persistence.*;
+import java.util.*;
 
 /**
  * A session
@@ -162,6 +161,14 @@ public abstract class Session extends Model implements Lookable, Comparable<Sess
 
     public static <T extends Session> List<T> findBySpeaker(Member speaker, ConferenceEvent event) {
         return find("? in elements(speakers) and event = ?", speaker, event).fetch();
+    }
+
+    public static <T extends Session> List<T> findValidatedBySpeaker(Member speaker, ConferenceEvent event) {
+        return find("valid = true and ? in elements(speakers) and event = ?", speaker, event).fetch();
+    }
+
+    public static long countValidatedBySpeaker(Member speaker, ConferenceEvent event) {
+        return count("valid = true and ? in elements(speakers) and event = ?", speaker, event);
     }
 
     public static List<Session> findAllLinkedWith(Interest interest) {

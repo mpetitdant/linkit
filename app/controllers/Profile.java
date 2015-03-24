@@ -1,7 +1,10 @@
 package controllers;
 
+import com.google.api.client.util.Maps;
 import models.*;
 import models.dto.SpeakerPreferencesDTO;
+import models.planning.PlanedSlot;
+import models.planning.Slot;
 import models.validation.GoogleIDCheck;
 import org.apache.commons.lang.StringUtils;
 import play.Logger;
@@ -14,6 +17,7 @@ import play.templates.TemplateLoader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 @With(SecureLinkIt.class)
 public class Profile extends PageController {
@@ -33,7 +37,27 @@ public class Profile extends PageController {
 
         Logger.info("Edition des contraintes du speaker " + member);
         SpeakerPreferences preferences = SpeakerPreferences.find("bySpeakerAndEvent", member, ConferenceEvent.CURRENT).first();
-        render(preferences);
+
+        List<Session> validatedSessions = Session.findValidatedBySpeaker(member, ConferenceEvent.CURRENT);
+        Map<Session, Slot> slotsBySession = getSlotsBySession(validatedSessions);
+
+        render(preferences, validatedSessions, slotsBySession);
+    }
+
+    private static Map<Session, Slot> getSlotsBySession(List<Session> validatedSessions) {
+        Map<Session, Slot> result = Maps.newHashMap();
+
+        for (Session validatedSession : validatedSessions) {
+            if (validatedSession instanceof Talk) {
+                PlanedSlot planedSlot = PlanedSlot.forTalkOn((Talk) validatedSession, ConferenceEvent.CURRENT);
+
+                if ( planedSlot != null ) {
+                    result.put(validatedSession, planedSlot.slot);
+                }
+            }
+        }
+
+        return result;
     }
 
     public static void register(String login, ProviderType provider) {

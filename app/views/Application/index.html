@@ -158,6 +158,9 @@
 
         <div class="row" style="text-align: center">
             <div class="well col-sm-4 col-sm-offset-4">
+                #{if isValidatedSpeaker}
+                    <a href="@{Profile.editSpeakerPreferences()}" class="btn btn-lg btn-danger btn-block">&{'speakerPreferences.not-set'}</a>
+                #{/if}
                 #{if java.lang.Boolean.valueOf(play.configuration.getProperty('cfp.isOpen', 'false')) }
                     <a href="@{Sessions.create(session.username)}" class="btn btn-lg btn-primary btn-block">&{'menu.agenda.submit'}</a>
                 #{/if}

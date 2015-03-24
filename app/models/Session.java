@@ -167,6 +167,10 @@ public abstract class Session extends Model implements Lookable, Comparable<Sess
         return find("valid = true and ? in elements(speakers) and event = ?", speaker, event).fetch();
     }
 
+    public static long countValidatedBySpeaker(Member speaker, ConferenceEvent event) {
+        return count("valid = true and ? in elements(speakers) and event = ?", speaker, event);
+    }
+
     public static List<Session> findAllLinkedWith(Interest interest) {
         return find("? in elements(interests)", interest).fetch();
     }

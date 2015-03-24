@@ -684,3 +684,5 @@ preferences.additionalDetails=Détails supplémentaires
 preferences.additionalDetails.note=Tout autre détail à ajouter.
 
 preferences.saved=Vos préférences ont été sauvegardées.
+
+speakerPreferences.not-set=Saisir mes préférences speaker

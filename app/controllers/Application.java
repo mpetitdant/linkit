@@ -34,6 +34,8 @@ public class Application extends PageController {
 
         Member member = Member.findByLogin(login);
 
+        boolean isValidatedSpeaker = Session.countValidatedBySpeaker(member, ConferenceEvent.CURRENT) > 0;
+
         // Three recent articles
         // Unused
 //        List<Article> articles = Article.recents(1, 3);
@@ -55,7 +57,7 @@ public class Application extends PageController {
         boolean ticketSales = helpers.ticketing.YurPlan.isTicketSales() ;
         boolean soldOut = helpers.ticketing.YurPlan.soldOut ;
 
-        render(/*articles, sessions, members, */isHomePage, guestSpeakersToDisplay, ticketSalesStartDate, ticketSales, soldOut, member);
+        render(/*articles, sessions, members, */isHomePage, guestSpeakersToDisplay, ticketSalesStartDate, ticketSales, soldOut, member, isValidatedSpeaker);
     }
 
     public static void members() {

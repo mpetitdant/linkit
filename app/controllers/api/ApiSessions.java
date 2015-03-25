@@ -11,6 +11,13 @@ import java.util.List;
 
 public class ApiSessions extends JsonpController {
 
+    private static JsonSerializer DETAILED_SLOT_SERIALIZER = new PlanedSlotJsonSerializer(true);
+    private static JsonSerializer DETAILED_TALK_SERIALIZER = new TalkJsonSerializer(true);
+    private static JsonSerializer DETAILED_LT_SERIALIZER = new LightningTalkJsonSerializer(true);
+    private static JsonSerializer SLOT_SERIALIZER = new PlanedSlotJsonSerializer(false);
+    private static JsonSerializer TALK_SERIALIZER = new TalkJsonSerializer(false);
+    private static JsonSerializer LT_SERIALIZER = new LightningTalkJsonSerializer(false);
+
     public static void talks(boolean details) {
         Planning planning = PlanedSlot.on(ConferenceEvent.CURRENT, true);
         renderJSON(planning.getSlots(), details ? DETAILED_SLOT_SERIALIZER : SLOT_SERIALIZER);
@@ -38,10 +45,5 @@ public class ApiSessions extends JsonpController {
     }
 
 
-    private static JsonSerializer DETAILED_SLOT_SERIALIZER = new PlanedSlotJsonSerializer(true);
-    private static JsonSerializer DETAILED_TALK_SERIALIZER = new TalkJsonSerializer(true);
-    private static JsonSerializer DETAILED_LT_SERIALIZER = new LightningTalkJsonSerializer(true);
-    private static JsonSerializer SLOT_SERIALIZER = new PlanedSlotJsonSerializer(false);
-    private static JsonSerializer TALK_SERIALIZER = new TalkJsonSerializer(false);
-    private static JsonSerializer LT_SERIALIZER = new LightningTalkJsonSerializer(false);
+
 }

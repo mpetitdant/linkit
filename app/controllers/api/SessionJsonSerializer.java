@@ -38,7 +38,7 @@ public abstract class SessionJsonSerializer {
         }
 
         if (CollectionUtils.size(session.speakers) != 0) {
-            if (details) {
+            if(details) {
                 JsonArray speakers = new JsonArray();
                 for (Member s : session.speakers) {
                     JsonObject speaker = new JsonObject();
@@ -50,9 +50,11 @@ public abstract class SessionJsonSerializer {
                     speakers.add(speaker);
                 }
                 result.add("speakers", speakers);
-            } else {
+            }
+            else {
                 result.add("speakers", JSON.toJsonArrayOfIds(session.speakers));
             }
+
         }
 
         return result;

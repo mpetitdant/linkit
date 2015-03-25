@@ -1,22 +1,44 @@
 package models;
 
 import com.google.common.base.Function;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.builder.CompareToBuilder;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+import javax.annotation.Nullable;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import controllers.Mails;
+import controllers.api.NoExposeExclusionStrategy;
 import models.activity.Activity;
 import models.activity.CommentSessionActivity;
 import models.activity.LookSessionActivity;
 import models.activity.UpdateSessionActivity;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.builder.CompareToBuilder;
 import play.Logger;
 import play.data.validation.MaxSize;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 import play.modules.search.Field;
-
-import javax.annotation.Nullable;
-import javax.persistence.*;
-import java.util.*;
 
 /**
  * A session
@@ -67,17 +89,21 @@ public abstract class Session extends Model implements Lookable, Comparable<Sess
 
     @ManyToMany
     @Required
+    @NoExposeExclusionStrategy.NoExpose
     public Set<Member> speakers = new HashSet<Member>();
 
     @ManyToMany(cascade = CascadeType.PERSIST)
+    @NoExposeExclusionStrategy.NoExpose
     public Set<Interest> interests = new TreeSet<Interest>();
 
     /** Eventual comments */
     @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
     @OrderBy("postedAt ASC")
+    @NoExposeExclusionStrategy.NoExpose
     public List<SessionComment> comments = new ArrayList<SessionComment>();
 
     @OneToMany(mappedBy = "session", cascade = CascadeType.ALL, orphanRemoval = true)
+    @NoExposeExclusionStrategy.NoExpose
     public List<Vote> votes;
 
     /** Number of consultation */

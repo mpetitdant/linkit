@@ -100,7 +100,7 @@ public class Member extends Model implements Lookable, Comparable<Member> {
     @Column(name = COMPANY)
     @Field
     public String company;
-    
+
     public boolean ticketingRegistered = false;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -127,18 +127,22 @@ public class Member extends Model implements Lookable, Comparable<Member> {
      * Members he follows
      */
     @ManyToMany
+    @NoExposeExclusionStrategy.NoExpose
     public Set<Member> links = new HashSet<Member>();
     /**
      * Members who follow him : reverse-mapping of {@link Member#links}
      */
     @ManyToMany(mappedBy = "links")
+    @NoExposeExclusionStrategy.NoExpose
     public Set<Member> linkers = new HashSet<Member>();
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     @MapKey(name="provider")
+    @NoExposeExclusionStrategy.NoExpose
     public Map<ProviderType,Account> accounts = new EnumMap<ProviderType, Account>(ProviderType.class);
 
     @ManyToMany(cascade = CascadeType.PERSIST)
+    @NoExposeExclusionStrategy.NoExpose
     public Set<Interest> interests = new TreeSet<Interest>();
 
     @ElementCollection
@@ -150,9 +154,10 @@ public class Member extends Model implements Lookable, Comparable<Member> {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     @OrderColumn(name = "ordernum")
+    @NoExposeExclusionStrategy.NoExpose
     @Valid
     public List<SharedLink> sharedLinks = new LinkedList<SharedLink>();
-    
+
     /**
      * Number of profile consultations
      */
@@ -259,7 +264,7 @@ public class Member extends Model implements Lookable, Comparable<Member> {
     public static Member findByEmail(final String email) {
         return find("email=?", email).first();
     }
-        
+
     public static List<Long> findAllIds() {
         return find("select m.id from Member m").fetch();
     }
@@ -386,7 +391,7 @@ public class Member extends Model implements Lookable, Comparable<Member> {
             }
         }
     }
-    
+
     public void updateSharedLinks(List<SharedLink> links) {
         List<SharedLink> previouses = new ArrayList<SharedLink>(this.sharedLinks);
         this.sharedLinks.clear();
@@ -532,7 +537,7 @@ public class Member extends Model implements Lookable, Comparable<Member> {
                 .append(lastname)
                 .toString()
                 , CHAR_DELIMITER_NAME);
-        
+
     }
 
     public boolean hasRole(String profile) {
@@ -614,11 +619,11 @@ public class Member extends Model implements Lookable, Comparable<Member> {
                 Sets.filter(sessions, SessionPredicates.PREVIOUS_VALIDATED_TALK),
                 Session.toEvent());
     }
-    
+
     public Set<Session> getProposedTalks() {
         return Sets.filter(sessions, SessionPredicates.CURRENT_PROPOSED_TALK);
     }
-    
+
     public Set<Session> getLightningTalks() {
         return Sets.filter(sessions, SessionPredicates.CURRENT_LIGHTNING_TALK);
     }

@@ -86,6 +86,7 @@ public class Member extends Model implements Lookable, Comparable<Member> {
 
     @Required
     @Email
+    @NoExposeExclusionStrategy.NoExpose
     public String email;
 
     @Column(name = FIRSTNAME)

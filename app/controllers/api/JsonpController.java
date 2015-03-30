@@ -57,7 +57,6 @@ public class JsonpController extends Controller {
 
     private static Gson createGson(JsonSerializer<?>... adapters) {
         GsonBuilder gson = new GsonBuilder();
-        gson.addSerializationExclusionStrategy(new NoExposeExclusionStrategy()).create();
         if (adapters != null) {
             for (Object adapter : adapters) {
                 Type t = getMethod(adapter.getClass(), "serialize").getParameterTypes()[0];

@@ -12,8 +12,8 @@ public class AbstractSessionDTO {
     private String description;
     private TalkLanguage language;
 
-    private DateTime start;
-    private DateTime end;
+    private String start;   // String to avoid default obscure DateTime serialization
+    private String end;
     private Room room;
 
     public Long getId() {
@@ -56,19 +56,19 @@ public class AbstractSessionDTO {
         this.language = language;
     }
 
-    public DateTime getStart() {
+    public String getStart() {
         return start;
     }
 
-    public void setStart(DateTime start) {
+    public void setStart(String start) {
         this.start = start;
     }
 
-    public DateTime getEnd() {
+    public String getEnd() {
         return end;
     }
 
-    public void setEnd(DateTime end) {
+    public void setEnd(String end) {
         this.end = end;
     }
 

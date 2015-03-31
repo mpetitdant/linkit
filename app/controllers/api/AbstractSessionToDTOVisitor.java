@@ -21,8 +21,8 @@ public abstract class AbstractSessionToDTOVisitor implements SessionToJsonVisito
     protected void initSlot(PlanedSlot slot, AbstractSessionDTO dto) {
         initCommon(slot.talk, dto);
         if (slot.slot != null) {
-            dto.setStart(slot.slot.getStartDateTime());
-            dto.setEnd(slot.slot.getEndDateTime());
+            dto.setStart(slot.slot.getStartDateTime().toString());
+            dto.setEnd(slot.slot.getEndDateTime().toString());
             dto.setRoom(slot.slot.getRoom());
         }
     }

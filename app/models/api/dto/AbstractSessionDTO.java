@@ -14,7 +14,7 @@ public class AbstractSessionDTO {
 
     private String start;   // String to avoid default obscure DateTime serialization
     private String end;
-    private Room room;
+    private String room;
 
     public Long getId() {
         return id;
@@ -72,11 +72,11 @@ public class AbstractSessionDTO {
         this.end = end;
     }
 
-    public Room getRoom() {
+    public String getRoom() {
         return room;
     }
 
-    public void setRoom(Room room) {
+    public void setRoom(String room) {
         this.room = room;
     }
 }

@@ -23,7 +23,7 @@ public abstract class AbstractSessionToDTOVisitor implements SessionToJsonVisito
         if (slot.slot != null) {
             dto.setStart(slot.slot.getStartDateTime().toString());
             dto.setEnd(slot.slot.getEndDateTime().toString());
-            dto.setRoom(slot.slot.getRoom());
+            dto.setRoom(slot.slot.getRoom().toString());
         }
     }
 

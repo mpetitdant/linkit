@@ -17,7 +17,6 @@ public class ApiSessions extends JsonpController {
         @Override
         public AbstractSessionDTO visit(Talk talk) {
             SessionSimpleDTO dto = new SessionSimpleDTO();
-            initCommon(talk, dto);
             initSimpleSession(talk, dto);
             return dto;
         }
@@ -25,7 +24,6 @@ public class ApiSessions extends JsonpController {
         @Override
         public AbstractSessionDTO visit(LightningTalk lt) {
             LightningTalkSimpleDTO dto = new LightningTalkSimpleDTO();
-            initCommon(lt, dto);
             initSimpleSession(lt, dto);
             dto.setNbVotes(Vote.findNumberOfVotesBySession(lt));
             return dto;
@@ -34,7 +32,6 @@ public class ApiSessions extends JsonpController {
         @Override
         public AbstractSessionDTO visit(PlanedSlot slot) {
             SessionSimpleDTO dto = new SessionSimpleDTO();
-            initCommon(slot.talk, dto);
             initSimpleSession(slot.talk, dto);
             initSlot(slot, dto);
             return dto;
@@ -45,7 +42,6 @@ public class ApiSessions extends JsonpController {
         @Override
         public AbstractSessionDTO visit(Talk talk) {
             SessionDetailedDTO dto = new SessionDetailedDTO();
-            initCommon(talk, dto);
             initDetailedSession(talk, dto);
             return dto;
         }
@@ -53,7 +49,6 @@ public class ApiSessions extends JsonpController {
         @Override
         public AbstractSessionDTO visit(LightningTalk lt) {
             LightningTalkDetailedDTO dto = new LightningTalkDetailedDTO();
-            initCommon(lt, dto);
             initDetailedSession(lt, dto);
             dto.setNbVotes(Vote.findNumberOfVotesBySession(lt));
             return dto;
@@ -62,7 +57,6 @@ public class ApiSessions extends JsonpController {
         @Override
         public AbstractSessionDTO visit(PlanedSlot slot) {
             SessionDetailedDTO dto = new SessionDetailedDTO();
-            initCommon(slot.talk, dto);
             initDetailedSession(slot.talk, dto);
             initSlot(slot, dto);
             return dto;

@@ -10,7 +10,7 @@ import models.planning.PlanedSlot;
 
 public abstract class AbstractSessionToDTOVisitor implements SessionToJsonVisitor {
 
-    protected void initCommon(Session session, AbstractSessionDTO dto) {
+    private void initCommon(Session session, AbstractSessionDTO dto) {
         dto.setDescription(session.description);
         dto.setId(session.id);
         dto.setLanguage(session.lang);
@@ -19,6 +19,7 @@ public abstract class AbstractSessionToDTOVisitor implements SessionToJsonVisito
     }
 
     protected void initSlot(PlanedSlot slot, AbstractSessionDTO dto) {
+        initCommon(slot.talk, dto);
         if (slot.slot != null) {
             dto.setStart(slot.slot.getStartDateTime());
             dto.setEnd(slot.slot.getEndDateTime());
@@ -27,11 +28,14 @@ public abstract class AbstractSessionToDTOVisitor implements SessionToJsonVisito
     }
 
     protected void initSimpleSession(Session session, SessionSimpleDTO dto) {
+        initCommon(session, dto);
         dto.setInterests(JSON.nullify(FluentIterable.from(session.interests).transform(Models.toId()).toImmutableSet()));
         dto.setSpeakers(JSON.nullify(FluentIterable.from(session.speakers).transform(Models.toId()).toImmutableSet()));
     }
 
     protected void initDetailedSession(final Session session, SessionDetailedDTO dto) {
+
+        initCommon(session, dto);
 
         dto.setInterests(JSON.nullify(FluentIterable.from(session.interests).transform(new Function<Interest, InterestDTO>() {
             @Override

@@ -10,7 +10,7 @@ import models.api.dto.*;
 
 public abstract class AbstractMemberToDTOVisitor implements MemberToJsonVisitor {
 
-    protected void initCommon(Member member, AbstractMemberDTO dto) {
+    private void initCommon(Member member, AbstractMemberDTO dto) {
         dto.setCompany(member.company);
         dto.setFirstName(member.firstname);
         dto.setId(member.id);
@@ -33,11 +33,14 @@ public abstract class AbstractMemberToDTOVisitor implements MemberToJsonVisitor 
     }
 
     protected void initSimpleMember(Member member, MemberSimpleDTO dto) {
+        initCommon(member, dto);
         dto.setInterests(JSON.nullify(FluentIterable.from(member.interests).transform(Models.toId()).toImmutableSet()));
         dto.setSessions(JSON.nullify(FluentIterable.from(member.getValidatedTalks()).transform(Models.toId()).toImmutableSet()));
     }
 
     protected void initDetailedMember(Member member, MemberDetailedDTO dto) {
+
+        initCommon(member, dto);
 
         dto.setInterests(JSON.nullify(FluentIterable.from(member.interests).transform(new Function<Interest, InterestDTO>() {
             @Override

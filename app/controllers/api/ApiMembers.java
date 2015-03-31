@@ -15,7 +15,6 @@ public class ApiMembers extends JsonpController {
         @Override
         public AbstractMemberDTO visit(Member member) {
             MemberSimpleDTO dto = new MemberSimpleDTO();
-            initCommon(member, dto);
             initSimpleMember(member, dto);
             return dto;
         }
@@ -23,7 +22,6 @@ public class ApiMembers extends JsonpController {
         @Override
         public AbstractMemberDTO visit(Staff staff) {
             MemberSimpleDTO dto = new MemberSimpleDTO();
-            initCommon(staff, dto);
             initSimpleMember(staff, dto);
             return dto;
         }
@@ -31,7 +29,6 @@ public class ApiMembers extends JsonpController {
         @Override
         public AbstractMemberDTO visit(Sponsor sponsor) {
             SponsorSimpleDTO dto = new SponsorSimpleDTO();
-            initCommon(sponsor, dto);
             initSimpleMember(sponsor, dto);
 
             dto.setLevel(sponsor.level);
@@ -45,7 +42,6 @@ public class ApiMembers extends JsonpController {
         @Override
         public AbstractMemberDTO visit(Member member) {
             MemberDetailedDTO dto = new MemberDetailedDTO();
-            initCommon(member, dto);
             initDetailedMember(member, dto);
             return dto;
         }
@@ -53,7 +49,6 @@ public class ApiMembers extends JsonpController {
         @Override
         public AbstractMemberDTO visit(Staff staff) {
             MemberDetailedDTO dto = new MemberDetailedDTO();
-            initCommon(staff, dto);
             initDetailedMember(staff, dto);
             return dto;
         }
@@ -61,7 +56,6 @@ public class ApiMembers extends JsonpController {
         @Override
         public AbstractMemberDTO visit(Sponsor sponsor) {
             SponsorDetailedDTO dto = new SponsorDetailedDTO();
-            initCommon(sponsor, dto);
             initDetailedMember(sponsor, dto);
 
             dto.setLevel(sponsor.level);

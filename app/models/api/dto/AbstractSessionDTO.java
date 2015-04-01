@@ -1,8 +1,9 @@
 package models.api.dto;
 
+import models.TalkFormat;
 import models.TalkLanguage;
-import models.planning.Room;
-import org.joda.time.DateTime;
+import models.TalkLevel;
+import models.Track;
 
 public class AbstractSessionDTO {
 
@@ -11,6 +12,14 @@ public class AbstractSessionDTO {
     private String summary;
     private String description;
     private TalkLanguage language;
+    private String ideaForNow;
+
+    /** Only for {@link models.Talk} **/
+    private TalkFormat format;
+    /** Only for {@link models.Talk} **/
+    private TalkLevel level;
+    /** Only for {@link models.Talk} **/
+    private Track track;
 
     private String start;   // String to avoid default obscure DateTime serialization
     private String end;
@@ -56,6 +65,14 @@ public class AbstractSessionDTO {
         this.language = language;
     }
 
+    public Track getTrack() {
+        return track;
+    }
+
+    public void setTrack(Track track) {
+        this.track = track;
+    }
+
     public String getStart() {
         return start;
     }
@@ -78,5 +95,29 @@ public class AbstractSessionDTO {
 
     public void setRoom(String room) {
         this.room = room;
+    }
+
+    public TalkFormat getFormat() {
+        return format;
+    }
+
+    public void setFormat(TalkFormat format) {
+        this.format = format;
+    }
+
+    public TalkLevel getLevel() {
+        return level;
+    }
+
+    public void setLevel(TalkLevel level) {
+        this.level = level;
+    }
+
+    public String getIdeaForNow() {
+        return ideaForNow;
+    }
+
+    public void setIdeaForNow(String ideaForNow) {
+        this.ideaForNow = ideaForNow;
     }
 }

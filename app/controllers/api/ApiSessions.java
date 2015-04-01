@@ -18,6 +18,9 @@ public class ApiSessions extends JsonpController {
         public AbstractSessionDTO visit(Talk talk) {
             SessionSimpleDTO dto = new SessionSimpleDTO();
             initSimpleSession(talk, dto);
+            dto.setFormat(talk.format);
+            dto.setLevel(talk.level);
+            dto.setTrack(talk.track);
             return dto;
         }
 

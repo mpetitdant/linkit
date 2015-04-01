@@ -16,6 +16,7 @@ public abstract class AbstractSessionToDTOVisitor implements SessionToJsonVisito
         dto.setLanguage(session.lang);
         dto.setSummary(session.summary);
         dto.setTitle(session.title);
+        dto.setIdeaForNow(session.ideaForNow);
     }
 
     protected void initSlot(PlanedSlot slot, AbstractSessionDTO dto) {
